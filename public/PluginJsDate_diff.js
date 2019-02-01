@@ -1,5 +1,6 @@
 function PluginJsDate_diff(){
   this.data = {
+    success: true,
     date1: '2001-01-01', 
     date2: '2002-02-02', 
     diff: null,
@@ -39,10 +40,17 @@ function PluginJsDate_diff(){
     /**
      * 
      */
+    this.data.success = true;
+    if(this.data.date1_obj=='Invalid Date' || this.data.date2_obj=='Invalid Date'){
+      this.data.success = false;
+    }
+    /**
+     * 
+     */
     return this.data; 
   }
 }
 var PluginJsDate_diff = new PluginJsDate_diff();
-//PluginJsDate_diff.data.date1 = '1967-06-22';
-//PluginJsDate_diff.data.date2 = new Date();
+//PluginJsDate_diff.data.date1 = '2001-01-01';
+//PluginJsDate_diff.data.date2 = 'sdf';
 //console.log(PluginJsDate_diff.calc());
