@@ -15,11 +15,13 @@ function PluginJsDate_diff(){
     this.data.date1_obj = new Date(this.data.date1);
     this.data.date1_year = this.data.date1_obj.getFullYear();
     this.data.date1_month = this.data.date1_obj.getMonth();
+    this.data.date1_date = this.data.date1_obj.getDate();
     this.data.date2_typeof = (typeof this.data.date2);
     this.data.date2_parse = Date.parse(this.data.date2);
     this.data.date2_obj = new Date(this.data.date2);
     this.data.date2_year = this.data.date2_obj.getFullYear();
     this.data.date2_month = this.data.date2_obj.getMonth();
+    this.data.date2_date = this.data.date2_obj.getDate();
     this.data.diff = this.data.date2_parse - this.data.date1_parse;
     /**
      * Days
@@ -33,6 +35,9 @@ function PluginJsDate_diff(){
      * Months
      */
     this.data.diff_months = (this.data.date2_month+12*this.data.date2_year)-(this.data.date1_month+12*this.data.date1_year);
+    if(this.data.date1_date > this.data.date2_date){
+      this.data.diff_months --;  
+    }
     /**
      * Years
      */
@@ -51,6 +56,7 @@ function PluginJsDate_diff(){
   }
 }
 var PluginJsDate_diff = new PluginJsDate_diff();
-//PluginJsDate_diff.data.date1 = '2001-01-01';
-//PluginJsDate_diff.data.date2 = 'sdf';
+//PluginJsDate_diff.data.date1 = '2019-01-02';
+//PluginJsDate_diff.data.date2 = '2019-01-09';
 //console.log(PluginJsDate_diff.calc());
+//console.log(PluginJsDate_diff.data.diff_weeks);
